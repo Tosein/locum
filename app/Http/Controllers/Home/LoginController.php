@@ -36,4 +36,30 @@ class LoginController extends Controller
 
        
     }
+
+    public function dentist_login_submit(Request $request)
+    {
+        $request->validate([
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        $credentials = [
+            'username' =>$request->username,
+            'password' =>$request->password
+        ];
+        if(Auth::guard('dentist')->attempt($credentials)){
+            return redirect()->route('dentist_dashboard');
+        }
+        else{
+            return redirect()->route('home_login')->with('error', 'Information is not correct');
+        }
+
+       
+    }
+
+    public function dentist_logout()
+    {
+        Auth::guard('dentist')->logout();
+        return redirect()->route('home_login');
+    }
 }

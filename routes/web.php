@@ -31,9 +31,11 @@ Route::get('/create-account',[SignupController::class, 'index'])->name('home_cre
 Route::post('/dentist_signup_submit',[SignupController::class, 'dentist_signup_submit'])->name('dentist_signup_submit');
 Route::get('/dentist_signup_verify/{token}/{email}',[SignupController::class, 'dentist_signup_verify'])->name('dentist_signup_verify');
 
-// Route::post('/dentist_login_submit',[LoginController::class, 'dentist_login_submit'])->name('dentist_login_submit');
 Route::post('/dentist_login_submit',[LoginController::class, 'dentist_login_submit'])->name('dentist_login_submit');
-Route::post('/dentist/logout',[LoginController::class, 'dentist_logout'])->name('dentist_logout');
+Route::get('/dentist_forget_password',[LoginController::class, 'dentist_forget_password'])->name('dentist_forget_password');
+Route::get('/dentist/logout',[LoginController::class, 'dentist_logout'])->name('dentist_logout');
+
+
 
 Route::middleware(['dentist:dentist'])->group(function(){
     Route::get('/dentist/dashboard', [DentistController::class, 'dashboard'])->name('dentist_dashboard');
