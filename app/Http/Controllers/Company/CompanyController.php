@@ -11,4 +11,14 @@ class CompanyController extends Controller
     {
         return view('company.dashboard');
     }
+    public function edit_profile()
+    {
+
+        return view('company.edit_profile');
+    }
+
+    public function edit_profile_update()
+    {
+        
+    }
 }

@@ -39,6 +39,13 @@ Route::get('/dentist/logout',[LoginController::class, 'dentist_logout'])->name('
 
 Route::middleware(['dentist:dentist'])->group(function(){
     Route::get('/dentist/dashboard', [DentistController::class, 'dashboard'])->name('dentist_dashboard');
+    Route::get('/dentist/edit_profile', [DentistController::class, 'edit_profile'])->name('dentist_edit_profile');
+    Route::post('/dentist/edit_profile/update', [DentistController::class, 'edit_profile_update'])->name('dentist_edit_profile_update');
+
+    Route::get('/dentist/education/view', [DentistController::class, 'education'])->name('dentist_education');
+    Route::get('/dentist/skill/view', [DentistController::class, 'skill'])->name('dentist_skill');
+    Route::get('/dentist/experience/view', [DentistController::class, 'experience'])->name('dentist_experience');
+    Route::get('/dentist/resume/view', [DentistController::class, 'resume'])->name('dentist_resume');
 });
 
 
@@ -52,6 +59,8 @@ Route::post('/company_login_submit',[LoginController::class, 'company_login_subm
 
 Route::middleware(['company:company'])->group(function(){
     Route::get('/company/dashboard', [CompanyController::class, 'dashboard'])->name('company_dashboard');
+    Route::get('/company/edit_profile', [CompanyController::class, 'edit_profile'])->name('company_edit_profile');
+    Route::post('/dentist/edit_profile/update', [CompanyController::class, 'edit_profile_update'])->name('company_edit_profile_update');
 });
 
 
