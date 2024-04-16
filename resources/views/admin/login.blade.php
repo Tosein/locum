@@ -47,6 +47,11 @@
                                                 {{ $message }}
                                             </div>
                                             @enderror
+                                            @if (session()->get('error'))
+                                            <div class="text-danger">
+                                                {{ session()->get('error') }}
+                                            </div>
+                                            @endif
 
                                         </div>
                                         <div class="form-group">
@@ -69,7 +74,7 @@
                                         @endif
                                         <div class="form-group">
                                             <div>
-                                                <a href="{{ Route('admin.forget_password') }}">
+                                                <a href="{{ Route('admin_forget_password') }}">
                                                     Forget Password?
                                                 </a>
                                             </div>

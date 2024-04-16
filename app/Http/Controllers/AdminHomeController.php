@@ -87,4 +87,14 @@ class AdminHomeController extends Controller
     {
         
     }
+
+    public function admin_edit_profile()
+    {
+        return view('admin.profile');
+    }
+
+    public function admin_edit_profile_submit(Request $request)
+    {
+        dd($request->name);
+    }
 }

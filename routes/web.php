@@ -71,7 +71,9 @@ Route::get('/admin', [AdminHomeController::class, 'home'])->name('admin_home')->
 Route::get('/admin_login', [AdminHomeController::class, 'login'])->name('admin_login');
 Route::post('/admin_login_submit', [AdminHomeController::class, 'admin_login_submit'])->name('admin_login_submit');
 Route::get('/admin_logout', [AdminHomeController::class, 'logout'])->name('admin_logout');
-Route::get('/admin_forget_password', [AdminHomeController::class, 'forget_password'])->name('admin.forget_password');
-Route::get('/admin/reset-password/{token}/{email}', [AdminHomeController::class, 'admin_reset_password'])->name('admin_reset_password');
+Route::get('/admin_forget_password', [AdminHomeController::class, 'forget_password'])->name('admin_forget_password');
 Route::post('/admin_forget_password_submit', [AdminHomeController::class, 'admin_forget_password_submit'])->name('admin_forget_password_submit');
+Route::get('/admin/reset-password/{token}/{email}', [AdminHomeController::class, 'admin_reset_password'])->name('admin_reset_password');
 Route::post('/admin_reset_password_submit', [AdminHomeController::class, 'admin_reset_password_submit'])->name('admin_reset_password_submit');
+Route::get('/admin/edit_profile', [AdminHomeController::class, 'admin_edit_profile'])->name('admin_edit_profile')->middleware('admin:admin');
+Route::post('/admin/edit_profile_submit', [AdminHomeController::class, 'admin_edit_profile_submit'])->name('admin_edit_profile_submit');
